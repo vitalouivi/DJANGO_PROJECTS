@@ -1,0 +1,37 @@
+{% load static %}
+{% load mptt_tags %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/static/main/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Главная{% endblock %}:: Users</title>
+</head>
+<body>
+
+<h1>Пользователи</h1>
+<nav>
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'user:index' %}">all users</a>
+    <a href="{% url 'login' %}">login</a>
+    <a href="{% url 'logout' %}">logout</a>
+    <a href="{% url 'user:new-user' %}">Add user</a>
+
+</nav>
+{% block content %}
+{% endblock %}
+<style contenteditable
+       style="display: block;
+        white-space: pre;">
+    html{
+    background: #F5F5DC;
+    color: black
+    font-size: 16px;
+    font-family: 'Comic sans ms';
+    }
+</style>
+</body>
+</html>

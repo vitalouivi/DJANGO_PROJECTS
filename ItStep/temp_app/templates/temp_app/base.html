@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>{% block title %}Главная{% endblock %}:: Доска объявлений</title>
+</head>
+<body bgcolor="ccffcc", text="00331a", link="cc0000", vlink="4d0000">
+
+<h1>Записи</h1>
+<nav>
+    <a href="{% url 'temp:index' %}">main page</a>
+    <a href="{% url 'temp:create' %}">create</a>
+    <a href="{% url 'temp:change_all' %}">change all</a>
+    <a href="{% url 'temp:test' %}">test</a>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>
+

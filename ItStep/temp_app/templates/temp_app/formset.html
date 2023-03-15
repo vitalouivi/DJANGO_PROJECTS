@@ -1,0 +1,13 @@
+{% extends "temp_app/base.html" %}
+{% block content %}
+ <h1>Редактирование темплейтов</h1>
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            <table>
+        {{ formset.as_table }}
+            </table>
+        </ul>
+        <input type="submit" value="изменить">
+    </form>
+{% endblock %}

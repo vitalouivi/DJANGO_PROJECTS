@@ -1,0 +1,18 @@
+{% extends "temp_app/base.html" %}
+{% block content %}
+ <h1>Добавление Темплейта</h1>
+    {% if form.is_multipart %}
+        <form enctype="multipart/form-data" method="post">
+    {% else %}
+        <form method="post">
+    {% endif %}
+        <table>
+            {% csrf_token %}
+            {{ form }}
+            {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+            {% endfor %}
+        </table>
+        <input type="submit" value="Добавить">
+    </form>
+{% endblock %}

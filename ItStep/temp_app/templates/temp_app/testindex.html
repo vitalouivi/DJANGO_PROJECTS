@@ -1,0 +1,22 @@
+{% extends "temp_app/base.html" %}
+{% load static %}
+
+{%block content%}
+<div>
+  {% if page.has_previous %}
+ <h6> <a href="?page={{ page.previous_page_number }}">Предыдущая</a></h6>
+  &nbsp;&nbsp;| &nbsp;&nbsp;
+  <h6>Страница № {{ page.number }} из {{ page.paginator.num_pages }}</h6>
+  {% endif %}
+  {% if page.has_next %}
+  &nbsp;&nbsp;| &nbsp;&nbsp;
+  <a href="?page={{ page.next_page_number }}">Следующая</a>
+  {% endif %}
+</div>
+{% for tmp in temps %}
+    <h4> {{tmp.title}} </h4>
+    <h4> {{tmp.content|default:'свяжитесь с продавцом' }} </h4>
+    <h6> {{tmp.price}} </h6>
+    <h5><a href="{{ tmp.get_absolute_url }}">{{ tmp.get_absolute_url }}</a></h5>
+{% endfor %}
+{% endblock %}

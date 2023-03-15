@@ -1,0 +1,10 @@
+{% extends "temp_app/base.html" %}
+
+{%block content%}
+<h1>Template</h1>
+    <h4><a href="{% url 'temp:edit' tmp.slug %}"> {{tmp.title}}</a></h4>
+    <h5> {{ tmp.content }} </h5>
+    <h6> {{ tmp.price }} </h6>
+    <h6> {{ tmp.slug }} </h6>
+    <h3> {{ tmp.published|date:"d.m.Y H:i:s" }} </h3>
+{% endblock %}

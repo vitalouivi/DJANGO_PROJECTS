@@ -1,0 +1,14 @@
+{% extends "user/base.html" %}
+{% block content %}
+{% for user in users %}
+<article>
+    <div>
+        <h2><a href="{{ user.get_absolute_url }}"> {{ user }}</a></h2>
+        <p>{{ user.name }}</p>
+        <p>{{ user.surname }}</p>
+        <p>*************************</p>
+    </div>
+</article>
+{% endfor %}
+{% endblock %}
+

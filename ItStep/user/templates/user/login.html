@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+{% block title %}Authorisation{% endblock %}
+{% block content %}
+<h3>Log in</h3>
+{% if user.is_authenticated %}
+<p>Log in successful</p>
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden", name="next" value="{{ next }}">
+    <input type="submit" value="Log in">
+</form>
+<a href="{% url 'reset_password' %}"><i>Forgot Password?</i></a>
+{% endif %}
+{% endblock %}

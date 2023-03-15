@@ -1,0 +1,141 @@
+{% url 'app_name:name' param=param_self.pk %}
+{% if obj1 == obj2 %}
+{% if obj1 != obj2 %}
+{% if obj1 >=< obj2 %}
+{% if obj1 in obj2 %}
+{% if obj1 not in obj2 %}
+{% if obj1 Is obj2 %}
+{% if obj1 is not obj2 %}
+
+{% elif %}
+{% else %}
+{% endif  %}
+
+
+
+{% for rubric in rubrics %}
+{% ifchanged %}{{ rubric.parent.name }}{% endifchanged %}
+...
+{% endfor %}
+
+{% for rubric in rubrics %}
+{% ifchanged rubric.parent %}
+    {{ rubric.parent.name }}
+{% endifchanged %}
+...
+{% endfor %}
+
+
+{% for rubric in rubrics %}
+<div class="{% cycle 'obj1' 'obj2' 'obj3' %}">
+    <h3>{{ rubric.name }}</h3>
+    <h3>{{ rubric.parent }}</h3>
+</div>
+{% endfor %}
+
+.myDiv1 {
+border: 5px outset red;
+background-color: black;
+text-align: right
+}
+.myDiv2 {
+border: 5px outset red;
+background-color: black;
+text-align: left
+}
+
+.myrub1{
+border: 5px outset red;
+}
+.myrub2{
+border: 5px outset red;
+}
+
+
+{% for rubric in rubrics %}
+<div class="{% cycle 'myDiv1' 'myDiv2' %}">
+    {% if rubric.name Is 'Instruments' %}
+    <h3 class="myrub1">{{ rubric.name }}</h3>
+    <h3>{{ rubric.parent }}</h3>
+    {% elif rubric.name Is 'Books' %}
+    <h3 class="myrub2">{{ rubric.name }}</h3>
+    <h3>{{ rubric.parent }}</h3>
+    ...
+    {% else %}
+    <h3>{{ rubric.name }}</h3>
+    <h3>{{ rubric.parent }}</h3>
+    {% endif %}
+
+</div>
+{% endfor %}
+
+{% for rubric in rubrics %}
+<h4>{{ forloop.counter }}</h4>
+<h4>{{ forloop.counter0 }}</h4>
+<h4>{{ forloop.revcounter0 }}</h4>
+<h4>{{ forloop.revcounter }}</h4>
+<h4>{{ forloop.first }}</h4>
+<h4>{{ forloop.last }}</h4>
+
+    {% if {{ forloop.last }} %}
+    <div class="lastclass">
+        ...
+    </div>
+    {% elif {{ forloop.first }} %}
+    <div class="firstclass">
+        ...
+    </div>
+    {% endif %}
+{% empty %}
+<h1>В рубриках ничего нет!!!</h1>
+{% endfor %}
+
+
+{% for bb in bbs %}
+    ...
+    {{ forloop }}
+    {% for r in rubrics %}
+        <p>{{ r.name }}</p>
+        <h4>{{ forloop.parentloop.counter0 }}</h4>
+        {% empty %}
+        <h1>В рубриках ничего нет!!!</h1>
+    {% endfor %}
+{% endfor %}
+
+
+<h4>{{ forloop.first|yesno:'Правда, Ложь' }}</h4>
+<h4>{{ forloop.last|yesno:'Правда, Ложь' }}</h4>
+<h4> {{tmp.content|default:'свяжитесь с продавцом' }} </h4>
+<h4> {{tmp.title|cut:'it'}} </h4>
+{% for tmp in Tmps|dictsort:'price' %}
+
+
+BASE
+{% block secret %}
+ <h1>secret</h1>
+{% endblock %}
+
+INDEX
+{% block secret %}
+    <h1>This is an updated</h1>
+    {{ block.super }}
+    <h1>Specifically for this page</h1>
+{% endblock %}
+
+
+<div class="col-md-8 col-xs-12 productPaging noPadding printHide">
+    <ul class="pagination pull-right"><li class="active"><a href="#">PAGE</a></li>
+        <li class="active"><a href="#"><strong>1</strong></a></li>
+        <li><a href="https://www.amresupply.com/manufacturers/401510/48/48/" title="Whirlpool Parts">
+                    2</a></li>
+                    <li><a href="https://www.amresupply.com/manufacturers/401510/48/96/" title="Whirlpool Parts">
+                    3</a></li>
+                    <li><a href="https://www.amresupply.com/manufacturers/401510/48/144/" title="Whirlpool Parts">
+                    4</a></li>
+                    <li><a href="https://www.amresupply.com/manufacturers/401510/48/192/" title="Whirlpool Parts">
+                    5</a></li>
+                    <li><a href="https://www.amresupply.com/manufacturers/401510/48/48/" title="Whirlpool Parts">
+                    NEXT</a></li>
+                 <li><a href="https://www.amresupply.com/manufacturers/401510/48/1872/" title="Whirlpool Parts">
+                    LAST</a></li>
+        </ul></div>
